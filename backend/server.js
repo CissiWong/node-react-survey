@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import cors from "cors"
+import uuid from "uuid/v4"
 import bcrypt from "bcrypt-nodejs"
 
 const app = express()
@@ -23,6 +24,48 @@ mongoose.Promise = Promise
 // Log when mongo connects, or encounters errors when trying to connect.
 mongoose.connection.on("error", err => console.error("Connection error:", err))
 mongoose.connection.once("open", () => console.log("Connected to mongodb"))
+
+
+//Model for form //
+
+const Questions = mongoose.model("Questions", {
+  id: Number,
+  total: Number,
+  questionIsAnswered: Boolean,
+  score: Number
+})
+
+const Login = mongoose.model("Login", {
+  username: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  accessToken: {
+    type: String,
+    default: () => uuid()
+  }
+})
+
+app.get("/questions", (req, res) => {
+  Questions.find().then(allInfo => {
+    res.json(allInfo)
+  })
+})
+
+app.post("/questions", (req, res) => {
+  id: req.body.id,
+  total: req.body.total,
+  // questionIsAnswered: req.body.questionIsAnswered,
+  // score: req.body.score
+})
 
 
 app.get("/", (req, res) =>
