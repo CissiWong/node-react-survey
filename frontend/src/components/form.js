@@ -10,12 +10,10 @@ export default class Form extends React.Component {
     }
   }
 
-  updateQuestion = () => {
-    const updateIndex = ({ currentQuestionIndex }) => {
-      updateIndex(currentQuestionIndex + 1)
-    }
+  handleNewQuestion = onNewAnswer => {
+    const newQuestion = onNewAnswer + 1
     this.setState({
-      currentQuestionIndex: updateIndex
+      currentQuestionIndex: newQuestion
     })
   }
 
@@ -24,6 +22,7 @@ export default class Form extends React.Component {
     return (
       <div>
         <Question
+          onNewAnswer={this.handleNewQuestion}
           index={this.state.currentQuestionIndex}
           score={question.score}
           title={question.title}

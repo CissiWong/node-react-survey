@@ -3,7 +3,7 @@ import React from "react"
 export default class Question extends React.Component {
 
   handleAnswer = () => {
-    this.props.updateIndex(this.props.index)
+    this.props.onNewAnswer(this.props.index)
   }
 
   render() {
@@ -14,19 +14,19 @@ export default class Question extends React.Component {
         <label>
           <input
             type="radio"
-            id="radio-yes"
-            value={this.props.score} />Yes
+            id="radio-no" />No
         </label>
         <label>
           <input
+            value={this.props.score}
             type="radio"
-            id="radio-no" />No
+            id="radio-yes" />Yes
+          <button
+            value={this.props.index}
+            type="submit"
+            onClick={this.handleAnswer}>Nästa
+          </button>
         </label>
-        <button
-          value={this.props.index}
-          type="submit"
-          onClick={this.handleAnswer}>Nästa
-        </button>
       </div>
     )
   }
