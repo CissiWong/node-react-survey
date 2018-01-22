@@ -1,5 +1,6 @@
 export default [
   {
+
     title: "Skrämd eller hotad",
     question: "Har du känt dig skrämd eller hotad av något vårdpersonal sagt eller gjort mot dig under förlossningen? Ex. höjt rösten mot eller skällt på dig",
     score: 1

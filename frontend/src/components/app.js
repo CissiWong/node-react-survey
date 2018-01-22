@@ -1,11 +1,12 @@
 import React from "react"
+import Form from "./form.js"
 
 class App extends React.Component {
 
   render() {
     return (
       <div>
-        Find me in src/app.js!
+        <Form />
       </div>
     )
   }
