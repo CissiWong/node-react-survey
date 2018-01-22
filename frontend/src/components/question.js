@@ -2,6 +2,10 @@ import React from "react"
 
 export default class Question extends React.Component {
 
+  handleAnswer = () => {
+    this.props.updateIndex(this.props.index)
+  }
+
   render() {
     return (
       <div>
@@ -10,12 +14,19 @@ export default class Question extends React.Component {
         <label>
           <input
             type="radio"
-            id="radio-btn-yes"
+            id="radio-yes"
             value={this.props.score} />Yes
+        </label>
+        <label>
           <input
             type="radio"
-            id="radio-btn-no" />No
+            id="radio-no" />No
         </label>
+        <button
+          value={this.props.index}
+          type="submit"
+          onClick={this.handleAnswer}>Nästa
+        </button>
       </div>
     )
   }
