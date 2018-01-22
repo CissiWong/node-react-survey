@@ -61,15 +61,18 @@ app.get("/answer", (req, res) => {
 })
 
 app.post("/answer", (req, res) => {
-  const answer = new Answer(req.body)
-    // id: req.body.id,
-    // total: req.body.total,
-    // questionIsAnswered: req.body.questionIsAnswered,
-    // score: req.body.score
+  const answer = new Answer({
+    id: req.body.id,
+    total: req.body.total,
+    questionIsAnswered: req.body.questionIsAnswered,
+    score: req.body.score
+})
 
-  answer.save()
-  .then(() => { res.status(201).send( "Added information" )})
-  .catch(err => { res.status(400).send(err)})
+  answer.save().then(() => {
+  res.status(201).json({ message: "Added information" })
+  }).catch(err => {
+  res.status(400).json({ message: "No!", errors: err.errors })
+  })
 })
 
 app.listen(8080, () =>
