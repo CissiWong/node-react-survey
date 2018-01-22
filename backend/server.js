@@ -16,7 +16,7 @@ app.use(cors())
 
 // Connect to MongoDB, on the "products-api" database. If the db doesn't
 // exist, mongo will create it.
-mongoose.connect("mongodb://localhost/signup-form-api", { useMongoClient: true })
+mongoose.connect("mongodb://localhost/fodelsebyran-api", { useMongoClient: true })
 
 // This makes mongo use ES6 promises, instead of its own implementation
 mongoose.Promise = Promise
@@ -28,12 +28,14 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 
 //Model for form //
 
-const Questions = mongoose.model("Questions", {
+const Answer = mongoose.model("Answer", {
   id: Number,
   total: Number,
   questionIsAnswered: Boolean,
   score: Number
 })
+
+//model for Login and admin page //
 
 const Login = mongoose.model("Login", {
   username: {
@@ -54,23 +56,21 @@ const Login = mongoose.model("Login", {
   }
 })
 
-app.get("/questions", (req, res) => {
-  Questions.find().then(allInfo => {
-    res.json(allInfo)
-  })
+app.get("/answer", (req, res) => {
+  Answer.find().then( answer => res.json(answer))
 })
 
-app.post("/questions", (req, res) => {
-  id: req.body.id,
-  total: req.body.total,
-  // questionIsAnswered: req.body.questionIsAnswered,
-  // score: req.body.score
+app.post("/answer", (req, res) => {
+  const answer = new Answer(req.body)
+    // id: req.body.id,
+    // total: req.body.total,
+    // questionIsAnswered: req.body.questionIsAnswered,
+    // score: req.body.score
+
+  answer.save()
+  .then(() => { res.status(201).send( "Added information" )})
+  .catch(err => { res.status(400).send(err)})
 })
-
-
-app.get("/", (req, res) =>
-  res.send("Hello World!")
-)
 
 app.listen(8080, () =>
   console.log("Example app listening on port 8080!")
