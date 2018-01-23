@@ -34,7 +34,7 @@ export default class Form extends React.Component {
         isAnswered: true
       })
     } else {
-      console.log("heloo!")
+      console.log("helloo!")
     }
   }
 
@@ -45,7 +45,7 @@ export default class Form extends React.Component {
         <Question
           status={question.isAnswered}
           onNewAnswer={this.handleNewQuestion}
-          index={this.state.currentQuestionIndex}
+          index={question.index}
           score={question.score}
           title={question.title}
           question={question.question}
