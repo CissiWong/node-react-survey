@@ -7,7 +7,8 @@ export default class Form extends React.Component {
     super(props)
     this.state = {
       currentQuestionIndex: 0,
-      score: []
+      score: [],
+      totalScore: 0
     }
   }
 
@@ -18,9 +19,11 @@ export default class Form extends React.Component {
     })
   }
 
-  addScore = onNewScore => {
+  handleScore = onNewScore => {
+    const scoreTotal = onNewScore + this.state.totalScore
     this.setState({
-      score: [onNewScore, ...this.state.score]
+      score: [onNewScore, ...this.state.score],
+      totalScore: scoreTotal
     })
   }
 
@@ -34,7 +37,7 @@ export default class Form extends React.Component {
           score={question.score}
           title={question.title}
           question={question.question}
-          onNewScore={this.addScore} />
+          onNewScore={this.handleScore} />
       </div>
     )
   }
