@@ -19,14 +19,14 @@ export default class Question extends React.Component {
         <label>
           <input
             type="radio"
-            id="radio-no" />No
+            name="score" />No
         </label>
         <label>
           <input
             value={this.props.score}
             onChange={this.handleScore}
             type="radio"
-            id="radio-yes" />Yes
+            name="score" />Yes
           <button
             value={this.props.index}
             type="submit"
