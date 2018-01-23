@@ -29,14 +29,14 @@ export default class Question extends React.Component {
         <label>
           <input
             type="radio"
-            name="score" />No
+            name="score" />Nej
         </label>
         <label>
           <input
             onSubmit={this.handleScore}
             value={this.props.score}
             type="radio"
-            name="score" />Yes
+            name="score" />Ja
           <button
             value={this.props.index}
             type="submit"
