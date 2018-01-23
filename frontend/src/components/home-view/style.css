@@ -1,0 +1,9 @@
+header {
+  background-image: url("../images/FB_pattern_nologo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 500px;
+  width: 100%;
+  padding: 40px 0 40px 25px;
+}

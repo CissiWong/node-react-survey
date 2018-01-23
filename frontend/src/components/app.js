@@ -1,6 +1,5 @@
 import React from "react"
-// import Form from "./form.js"
-import HomeView from "./home-view.js"
+import HomeView from "../home-view"
 
 class App extends React.Component {
 

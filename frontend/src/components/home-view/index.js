@@ -1,6 +1,5 @@
 import React from "react"
-import "./home-view.css"
-import Form from "./form.js"
+import Form from "../form"
 
 export default class HomeView extends React.Component {
 
@@ -11,6 +10,7 @@ export default class HomeView extends React.Component {
         <main>
           <Form />
         </main>
+        <footer />
       </div>
     )
   }
