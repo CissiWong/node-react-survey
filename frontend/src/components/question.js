@@ -6,6 +6,11 @@ export default class Question extends React.Component {
     this.props.onNewAnswer(this.props.index)
   }
 
+  handleScore = () => {
+    console.log("the score is", this.props.score)
+    this.props.onNewScore(this.props.score)
+  }
+
   render() {
     return (
       <div>
@@ -19,6 +24,7 @@ export default class Question extends React.Component {
         <label>
           <input
             value={this.props.score}
+            onChange={this.handleScore}
             type="radio"
             id="radio-yes" />Yes
           <button

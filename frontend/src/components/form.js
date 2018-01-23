@@ -6,7 +6,8 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentQuestionIndex: 0
+      currentQuestionIndex: 0,
+      score: []
     }
   }
 
@@ -14,6 +15,12 @@ export default class Form extends React.Component {
     const newQuestion = onNewAnswer + 1
     this.setState({
       currentQuestionIndex: newQuestion
+    })
+  }
+
+  addScore = onNewScore => {
+    this.setState({
+      score: [onNewScore, ...this.state.score]
     })
   }
 
@@ -26,7 +33,8 @@ export default class Form extends React.Component {
           index={this.state.currentQuestionIndex}
           score={question.score}
           title={question.title}
-          question={question.question} />
+          question={question.question}
+          onNewScore={this.addScore} />
       </div>
     )
   }
