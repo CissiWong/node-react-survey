@@ -70,6 +70,11 @@ button:hover {
   width: 100%;
 }
 
+.column-two {
+  width: 100%;
+  display: flex;
+}
+
 .logo {
   max-width: 100%;
   position: absolute;
@@ -83,4 +88,36 @@ button:hover {
 .ig-logo img {
   height: 40px;
   width: 40px;
+  margin: 5px 10px 0 0;
+}
+
+.fb-logo img {
+  height: 40px;
+  width: 40px;
+  margin: 5px 5px 0 0;
+}
+
+
+@media (min-width: 620px) and (max-width: 1024px) {
+  .logo {
+    max-width: 60%;
+  }
+  .footer {
+    display: flex;
+  }
+  .column-one {
+    max-width: 40%;
+    padding: 40px 25px 25px 25px;
+  }
+  .column-two {
+    align-items: flex-end;
+    justify-content: flex-start;
+    max-width: 60%;
+    padding: 40px 25px 25px 25px;
+  }
+  .intro-text {
+    font-size: 21px;
+  }
+
+
 }

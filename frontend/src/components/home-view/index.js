@@ -3,6 +3,7 @@ import "./style.css"
 import Form from "../form"
 import logo from "./fb_logga_transp.png"
 import iglogo from "./instagram.svg"
+import fblogo from "./facebook.svg"
 
 export default class HomeView extends React.Component {
 
@@ -24,11 +25,17 @@ export default class HomeView extends React.Component {
             <h2>Födelsebyrån</h2>
             <p>Födelsebyrån är patientföreningen för födande samt graviditets- och förlossningsskadade samt anhöriga. Vi verkar för en rättvis och säker vård för alla.</p>
           </div>
-          <div />
-          <div className="ig-logo">
-            <a href="https://www.instagram.com/fodelsebyran.se/">
-              <img src={iglogo} alt="instagramlogo" />
-            </a>
+          <div className="column-two">
+            <div className="ig-logo">
+              <a href="https://www.instagram.com/fodelsebyran.se/">
+                <img src={iglogo} alt="instagramlogo" />
+              </a>
+            </div>
+            <div className="fb-logo">
+              <a href="https://www.facebook.com/fodelsebyran/" reL="noopener noreferrer">
+                <img src={fblogo} alt="facebooklogo" />
+              </a>
+            </div>
           </div>
         </footer>
       </div>
