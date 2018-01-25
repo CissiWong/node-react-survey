@@ -33,7 +33,7 @@
 }
 
 input {
-  margin: 10px;
+  margin: 0;
   cursor: default;
 }
 
@@ -42,7 +42,13 @@ input {
 }
 
 label {
-  margin-right: 20px;
+  width: 30%;
+  display: flex;
+  align-items: baseline;
+}
+
+label p {
+  margin: 0;
 }
 
 button {
@@ -57,8 +63,13 @@ button {
   border: 1px solid #000;
 }
 
-button:hover {
+button p:hover {
+  background-color: #00fd5a;
   text-decoration: underline;
+}
+
+button p {
+  margin: 0;
 }
 
 .footer {
@@ -123,6 +134,15 @@ button:hover {
   }
   div p.bold {
     font-size: 1em;
+  }
+
+  label {
+    width: 30%;
+    display: flex;
+  }
+
+  label p {
+    margin: 0;
   }
 }
 

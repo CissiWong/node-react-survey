@@ -28,7 +28,7 @@ export default class Question extends React.Component {
       <form className="form"
         onSubmit={this.handleFormSubmit}
         value={this.props.status}>
-        <h1>{this.props.title}</h1>
+        <h2>{this.props.title}</h2>
         <p>{this.props.question}</p>
         <div className="radio">
           <div className="score">

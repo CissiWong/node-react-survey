@@ -22,7 +22,7 @@ export default [
   },
   {
     title: "Personligt utrymme",
-    question: "Har du erfarit att vårdpersonalen under din förlossning tagit på någon del av din kropp eller inkräktat på ditt personal space utan ditt tillstånd eller uttryckta godkännande? Ex stått för nära, tagit i hand, öppnat toadörren utan att knacka...",
+    question: "Har du erfarit att vårdpersonalen under din förlossning tagit på någon del av din kropp eller inkräktat på ditt personliga utrymme utan ditt tillstånd eller uttryckta godkännande? Ex stått för nära, tagit i hand, öppnat toadörren utan att knacka...",
     score: 1,
     isAnswered: true,
     buttonText: "Nästa"
