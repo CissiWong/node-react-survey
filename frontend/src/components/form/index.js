@@ -8,35 +8,24 @@ export default class Form extends React.Component {
     this.state = {
       currentQuestionIndex: 0,
       score: [],
-      totalScore: 0,
-      isAnswered: false
+      totalScore: 0
     }
   }
 
   handleQuestionAnswer = score => {
+
+
     this.setState({
       currentQuestionIndex: this.state.currentQuestionIndex + 1,
       score: [score, ...this.state.score]
-    })
-  }
-
-  handleAddScore = onNewScore => {
-    const scoreTotal = onNewScore + this.state.totalScore
-    this.setState({
-      score: [onNewScore, ...this.state.score],
-      totalScore: scoreTotal
-    })
-  }
-
-  handleToggleIsAnswered = onNewStatus => {
-    if (onNewStatus === !this.state.isAnswered) {
+    }, () => {
+      const reducer = (accumulator, currentValue) => accumulator + currentValue
       this.setState({
-        isAnswered: true
+        totalScore: this.state.score.reduce(reducer)
       })
-    } else {
-      console.log("helloo!")
-    }
+    })
   }
+
 
   render() {
     console.log(data)
@@ -45,7 +34,6 @@ export default class Form extends React.Component {
     return (
       <div>
         <Question
-          status={question.isAnswered}
           onAnswered={this.handleQuestionAnswer}
           index={question.index}
           score={question.score}
