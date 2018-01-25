@@ -38,7 +38,7 @@ export default class Question extends React.Component {
               onChange={this.handleScoreChange}
               checked={this.state.selectedScore === "0"}
               type="radio"
-              name="score" />Nej
+              name="score" /><p>Nej</p>
           </label>
           <label>
             <input
@@ -46,11 +46,11 @@ export default class Question extends React.Component {
               onChange={this.handleScoreChange}
               checked={parseInt(this.state.selectedScore) === this.props.score}
               type="radio"
-              name="score" />Ja
+              name="score" /><p>Ja</p>
           </label>
           </div>
             <button
-              type="submit">{this.props.buttonText}
+              type="submit"><p>{this.props.buttonText}</p>
             </button>
          </div>
       </form>
