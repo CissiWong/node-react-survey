@@ -1,6 +1,6 @@
 import React from "react"
 import Question from "../question"
-import data from "./data.js"
+import data from "../data.js"
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -13,10 +13,10 @@ export default class Form extends React.Component {
     }
   }
 
-  handleNewQuestion = onNewAnswer => {
-    const newQuestion = onNewAnswer + 1
+  handleQuestionAnswer = score => {
     this.setState({
-      currentQuestionIndex: newQuestion
+      currentQuestionIndex: this.state.currentQuestionIndex + 1,
+      score: [score, ...this.state.score]
     })
   }
 
@@ -39,18 +39,19 @@ export default class Form extends React.Component {
   }
 
   render() {
+    console.log(data)
     const question = data[this.state.currentQuestionIndex]
+    console.log(question)
     return (
       <div>
         <Question
           status={question.isAnswered}
-          onNewAnswer={this.handleNewQuestion}
+          onAnswered={this.handleQuestionAnswer}
           index={question.index}
           score={question.score}
           title={question.title}
           question={question.question}
-          onNewScore={this.handleAddScore}
-          onNewStatus={this.handleToggleIsAnswered} />
+          buttonText={question.buttonText} />
       </div>
     )
   }

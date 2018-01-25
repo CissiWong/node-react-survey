@@ -1,5 +1,5 @@
 import React from "react"
-import HomeView from "../home-view"
+import HomeView from "./home-view"
 
 class App extends React.Component {
 
@@ -10,7 +10,6 @@ class App extends React.Component {
       </div>
     )
   }
-
 }
 
 export default App

@@ -2,47 +2,57 @@ import React from "react"
 
 export default class Question extends React.Component {
 
-  // handles render of new question //
-  handleAnswer = () => {
-    this.props.onNewAnswer(this.props.index)
-  }
-
-  // handles passing value of current score //
-  handleScore = () => {
-    console.log("the score is", this.props.score)
-    this.props.onNewScore(this.props.score)
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedScore: null
+    }
   }
 
   // handle status toggled to Answered //
-  handleStatus = () => {
-    console.log("the status is", this.props.status)
-    this.props.onNewStatus(this.props.status)
+  handleFormSubmit = event => {
+    event.preventDefault()
+    // console.log("the status is", this.props.status)
+    // this.props.onNewStatus(this.props.status)
+    this.props.onAnswered(this.props.score)
+  }
+
+  handleScoreChange = event => {
+    this.setState({
+      selectedScore: event.target.value
+    })
   }
 
   render() {
     return (
-      <form
-        onSubmit={this.handleStatus}
+      <form className="form"
+        onSubmit={this.handleFormSubmit}
         value={this.props.status}>
         <h1>{this.props.title}</h1>
         <p>{this.props.question}</p>
-        <label>
-          <input
-            type="radio"
-            name="score" />Nej
-        </label>
-        <label>
-          <input
-            onSubmit={this.handleScore}
-            value={this.props.score}
-            type="radio"
-            name="score" />Ja
-          <button
-            value={this.props.index}
-            type="submit"
-            onClick={this.handleAnswer}>Nästa
-          </button>
-        </label>
+        <div className="radio">
+          <div className="score">
+          <label>
+            <input
+              value={0}
+              onChange={this.handleScoreChange}
+              checked={this.state.selectedScore === "0"}
+              type="radio"
+              name="score" />Nej
+          </label>
+          <label>
+            <input
+              value={this.props.score}
+              onChange={this.handleScoreChange}
+              checked={parseInt(this.state.selectedScore) === this.props.score}
+              type="radio"
+              name="score" />Ja
+          </label>
+          </div>
+            <button
+              type="submit">{this.props.buttonText}
+            </button>
+         </div>
       </form>
     )
   }

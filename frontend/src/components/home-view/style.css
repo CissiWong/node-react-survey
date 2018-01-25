@@ -1,9 +1,86 @@
-header {
-  background-image: url("../images/FB_pattern_nologo.jpg");
+.header {
+  position: relative;
+  background-image: url("./FB_pattern_nologo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 500px;
+  height: 200px;
+  max-width: 100%;
+  padding: 40px;
+}
+
+.intro-text {
+  height: auto;
+  max-width: 100%;
+  padding: 40px;
+  background-color: #d1fed9;
+}
+
+.form-container {
+  padding: 40px;
+  height: auto;
+  max-width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+.score {
+  display: flex;
+  flex-wrap: wrap;
+}
+input {
+  margin: 10px;
+  cursor: default;
+}
+
+.radio {
   width: 100%;
-  padding: 40px 0 40px 25px;
+}
+
+label {
+  margin-right: 20px;
+}
+
+button {
+  align-content: flex-start;
+  height: 50px;
+  width: 150px;
+  background: #fff;
+  color: #000;
+  margin: 20px 0 20px 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  padding: 40px;
+  background-color: #000;
+  color: #fff;
+  height: auto;
+  max-width: 100%;
+}
+.column-one {
+  width: 100%;
+}
+
+.logo {
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ig-logo img {
+  height: 40px;
+  width: 40px;
 }
