@@ -1,7 +1,7 @@
 export default [
   {
     title: "Intro",
-    question: "Lorem ipsum",
+    question: "Det här formuläret har vi tagit fram med förhoppning om att få en tydligare uppfattning om vidden av problemet med förlossnings- och eftervård i Sverige idag. Det är också för att du som vårdtagare/patient ska få en möjlighet att sätta ord på vad som egentligen hände i förlossningsrummet och/eller tiden efter, som ett hjälpmedel för dig att se om det du vet, upplever eller misstänker hände, faktiskt kanske rör sig om en kränkning, ett övergrepp eller till och med ett brott. Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda dem som ett sätt att få klarhet. Självklart är du anonym.",
     score: 0,
     isAnswered: true,
     buttonText: "Börja"

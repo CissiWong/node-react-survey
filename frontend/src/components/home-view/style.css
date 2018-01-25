@@ -86,6 +86,7 @@ button p {
 .column-two {
   width: 100%;
   display: flex;
+  align-items: baseline;
 }
 
 .logo {
@@ -101,13 +102,20 @@ button p {
 .ig-logo img {
   height: 40px;
   width: 40px;
-  margin: 5px 10px 0 0;
+  margin: 0 10px 0 0;
 }
 
 .fb-logo img {
   height: 40px;
   width: 40px;
-  margin: 5px 5px 0 0;
+  margin: 0 10px 0 0;
+}
+
+.email img {
+  height: 40px;
+  width: 40px;
+  margin: 0 5px 0 0;
+  padding: 0;
 }
 
 
