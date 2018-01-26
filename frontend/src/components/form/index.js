@@ -34,6 +34,10 @@ export default class Form extends React.Component {
   // }
 
   handleQuestionAnswer = score => {
+    if (this.state.currentQuestionIndex + 1 === data.length) {
+      this.props.onDone(this.state)
+    }
+     
     this.setState({
       currentQuestionIndex: this.state.currentQuestionIndex + 1,
       score: [score, ...this.state.score]
@@ -42,6 +46,8 @@ export default class Form extends React.Component {
       this.setState({
         totalScore: this.state.score.reduce(reducer)
       })
+
+
     })
   }
 

@@ -13,7 +13,8 @@ export default class HomeView extends React.Component {
     super(props)
     this.state = {
       start: false,
-      done: true
+      done: true,
+      results: null
     }
   }
 
@@ -25,11 +26,12 @@ export default class HomeView extends React.Component {
     })
   }
 
-  // handleDone = () => {
-  //   if (this.props.currentQuestionIndex === data.length) {
-  //
-  //   }
-  // }
+  handleDone = formState => {
+    console.log(formState)
+    this.setState({
+      results: formState
+    })
+  }
 
   render() {
     return (
@@ -45,14 +47,16 @@ export default class HomeView extends React.Component {
           <p>Självklart är du anonym.</p>
         </div>
         <main className="form-container">
-          {this.state.start && <Form />}
+          {this.state.start && !this.state.results && <Form
+            onDone={this.handleDone} />}
           {this.props.currentQuestionIndex >= data.length ? <Finish /> : null}
           {!this.state.start &&
             <div className="start">
               <div>Klicka här för att börja</div>
               <button
+                className="start-btn"
                 type="submit"
-                onClick={this.handleStart}>Börja
+                onClick={this.handleStart}><p>Börja</p>
               </button>
             </div>}
         </main>
