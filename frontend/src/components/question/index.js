@@ -7,8 +7,8 @@ export default class Question extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedScore: null,
-      show: false
+      selectedScore: null
+      // show: false
     }
   }
 
@@ -23,16 +23,13 @@ export default class Question extends React.Component {
     })
   }
 
-  componentWillReceiveProps() {
-    if (this.props.index <= 0) {
-      console.log(this.props.index)
-    } else {
-      console.log("button go!")
-      this.setState({
-        show: !this.state.show
-      })
-    }
-  }
+  // componentWillReceiveProps() {
+  //   if (this.props.index <= 0) {
+  //     this.setState({
+  //       show: !this.state.show
+  //     })
+  //   }
+  // }
 
   render() {
     return (
@@ -42,7 +39,7 @@ export default class Question extends React.Component {
         <h2>{this.props.title}</h2>
         <p>{this.props.question}</p>
         <div className="radio">
-          <div className={this.state.show ? "show" : "hide"}>
+          {/* <div className={this.state.show ? "show" : "hide"}> */}
             <div className="score">
               <label>
                 <input
@@ -66,7 +63,7 @@ export default class Question extends React.Component {
             type="submit">
             <p>{this.props.buttonText}</p>
           </button>
-        </div>
+        {/* </div> */}
       </form>
     )
   }

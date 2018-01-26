@@ -30,9 +30,8 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 
 const Answer = mongoose.model("Answer", {
   id: Number,
-  total: Number,
-  questionIsAnswered: Boolean,
-  score: Number
+  score: [Number]
+  totalScore: Number
 })
 
 //model for Login and admin page //

@@ -1,12 +1,35 @@
 import React from "react"
 import "./style.css"
+import data from "../data.js"
 import Form from "../form"
+import Finish from "../finish"
 import logo from "./fb_logga_transp.png"
 import iglogo from "./instagram.svg"
 import fblogo from "./facebook.svg"
 import email from "./send.svg"
 
 export default class HomeView extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      start: false,
+      done: true
+    }
+  }
+
+  handleStart = event => {
+    console.log("clicked!")
+    event.preventDefault()
+    this.setState({
+      start: true
+    })
+  }
+
+  // handleDone = () => {
+  //   if (this.props.currentQuestionIndex === data.length) {
+  //
+  //   }
+  // }
 
   render() {
     return (
@@ -22,7 +45,16 @@ export default class HomeView extends React.Component {
           <p>Självklart är du anonym.</p>
         </div>
         <main className="form-container">
-          <Form />
+          {this.state.start && <Form />}
+          {this.props.currentQuestionIndex >= data.length ? <Finish /> : null}
+          {!this.state.start &&
+            <div className="start">
+              <div>Klicka här för att börja</div>
+              <button
+                type="submit"
+                onClick={this.handleStart}>Börja
+              </button>
+            </div>}
         </main>
         <footer className="footer">
           <div className="column-one">

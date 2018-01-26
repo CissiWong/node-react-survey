@@ -1,7 +1,6 @@
 import React from "react"
 import Question from "../question"
 import data from "../data.js"
-import Finish from "../finish"
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -9,10 +8,30 @@ export default class Form extends React.Component {
     this.state = {
       currentQuestionIndex: 0,
       score: [],
-      totalScore: 0,
-
+      totalScore: 0
     }
   }
+
+  // componentWillUnmount() {
+  //   fetch("http://localhost:8080/answer", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json, textplain, */*",
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(this.state)
+  //   }).then(response => {
+  //     if (response.status === 201) {
+  //       this.setState({
+  //         currentQuestionIndex: 0,
+  //         score: [],
+  //         totalScore: 0
+  //       })
+  //     } else {
+  //     //validation error //
+  //     }
+  //   })
+  // }
 
   handleQuestionAnswer = score => {
     this.setState({
@@ -28,13 +47,6 @@ export default class Form extends React.Component {
 
   render() {
     const question = data[this.state.currentQuestionIndex]
-    // console.log(data.length)
-    // if (this.state.currentQuestionIndex >= data.length) {
-    //   console.log("button stop!")
-    // } else {
-    //   console.log("button go!")
-    //   return <Finish />
-    // }
     return (
       <div>
         <Question
