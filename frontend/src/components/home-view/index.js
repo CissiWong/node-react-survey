@@ -31,6 +31,22 @@ export default class HomeView extends React.Component {
     this.setState({
       results: formState
     })
+
+    fetch("http://localhost:8080/answer", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state.results)
+    }).then(response => {
+      if (response.status === 201) {
+        console.log("yay!")
+      } else {
+        console.log("oh no!")
+      //validation error //
+      }
+    })
   }
 
   render() {

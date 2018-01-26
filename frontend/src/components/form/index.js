@@ -12,32 +12,10 @@ export default class Form extends React.Component {
     }
   }
 
-  // componentWillUnmount() {
-  //   fetch("http://localhost:8080/answer", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json, textplain, */*",
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(this.state)
-  //   }).then(response => {
-  //     if (response.status === 201) {
-  //       this.setState({
-  //         currentQuestionIndex: 0,
-  //         score: [],
-  //         totalScore: 0
-  //       })
-  //     } else {
-  //     //validation error //
-  //     }
-  //   })
-  // }
-
   handleQuestionAnswer = score => {
     if (this.state.currentQuestionIndex + 1 === data.length) {
       this.props.onDone(this.state)
     }
-     
     this.setState({
       currentQuestionIndex: this.state.currentQuestionIndex + 1,
       score: [score, ...this.state.score]
@@ -46,8 +24,6 @@ export default class Form extends React.Component {
       this.setState({
         totalScore: this.state.score.reduce(reducer)
       })
-
-
     })
   }
 

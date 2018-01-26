@@ -30,7 +30,7 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 
 const Answer = mongoose.model("Answer", {
   id: Number,
-  score: [Number]
+  score: [Number],
   totalScore: Number
 })
 
@@ -60,12 +60,7 @@ app.get("/answer", (req, res) => {
 })
 
 app.post("/answer", (req, res) => {
-  const answer = new Answer({
-    id: req.body.id,
-    total: req.body.total,
-    questionIsAnswered: req.body.questionIsAnswered,
-    score: req.body.score
-})
+  const answer = new Answer(req.body)
 
   answer.save().then(() => {
   res.status(201).json({ message: "Added information" })
