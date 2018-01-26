@@ -1,11 +1,14 @@
 import React from "react"
+import "./style.css"
+import data from "../data.js"
 
 export default class Question extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      selectedScore: null
+      selectedScore: null,
+      show: false
     }
   }
 
@@ -20,6 +23,17 @@ export default class Question extends React.Component {
     })
   }
 
+  componentWillReceiveProps() {
+    if (this.props.index <= 0) {
+      console.log(this.props.index)
+    } else {
+      console.log("button go!")
+      this.setState({
+        show: !this.state.show
+      })
+    }
+  }
+
   render() {
     return (
       <form
@@ -28,26 +42,29 @@ export default class Question extends React.Component {
         <h2>{this.props.title}</h2>
         <p>{this.props.question}</p>
         <div className="radio">
-          <div className="score">
-            <label>
-              <input
-                value={0}
-                onChange={this.handleScoreChange}
-                checked={this.state.selectedScore === "0"}
-                type="radio"
-                name="score" /><p>Nej</p>
-            </label>
-            <label>
-              <input
-                value={this.props.score}
-                onChange={this.handleScoreChange}
-                checked={parseInt(this.state.selectedScore) === this.props.score}
-                type="radio"
-                name="score" /><p>Ja</p>
-            </label>
+          <div className={this.state.show ? "show" : "hide"}>
+            <div className="score">
+              <label>
+                <input
+                  value={0}
+                  onChange={this.handleScoreChange}
+                  checked={this.state.selectedScore === "0"}
+                  type="radio"
+                  name="score" /><p>Nej</p>
+              </label>
+              <label>
+                <input
+                  value={this.props.score}
+                  onChange={this.handleScoreChange}
+                  checked={parseInt(this.state.selectedScore, 10) === this.props.score}
+                  type="radio"
+                  name="score" /><p>Ja</p>
+              </label>
+            </div>
           </div>
           <button
-            type="submit"><p>{this.props.buttonText}</p>
+            type="submit">
+            <p>{this.props.buttonText}</p>
           </button>
         </div>
       </form>

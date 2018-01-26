@@ -36,12 +36,12 @@ export default class HomeView extends React.Component {
               </a>
             </div>
             <div className="fb-logo">
-              <a href="https://www.facebook.com/fodelsebyran/" reL="noopener noreferrer">
+              <a href="https://www.facebook.com/fodelsebyran/" rel="noopener noreferrer">
                 <img src={fblogo} alt="facebooklogo" />
               </a>
             </div>
             <div className="email">
-              <a href="mailto:kontakt@fodelsebyran.se" reL="noopener noreferrer">
+              <a href="mailto:kontakt@fodelsebyran.se" rel="noopener noreferrer">
                 <img src={email} alt="email" />
               </a>
             </div>
