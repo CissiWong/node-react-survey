@@ -1,6 +1,5 @@
 import React from "react"
 import "./style.css"
-import data from "../data.js"
 
 export default class Question extends React.Component {
 
@@ -8,7 +7,6 @@ export default class Question extends React.Component {
     super(props)
     this.state = {
       selectedScore: null
-      // show: false
     }
   }
 
@@ -22,14 +20,6 @@ export default class Question extends React.Component {
       selectedScore: event.target.value
     })
   }
-
-  // componentWillReceiveProps() {
-  //   if (this.props.index <= 0) {
-  //     this.setState({
-  //       show: !this.state.show
-  //     })
-  //   }
-  // }
 
   render() {
     return (

@@ -54,6 +54,34 @@ const Login = mongoose.model("Login", {
     default: () => uuid()
   }
 })
+//
+// app.get("/", (req, res) => {
+//   const password = "adminpassword"
+//   const hash = bcrypt.hashSync(password)
+//   res.send("password")
+// })
+
+app.get("/users", (req, res) => {
+  Login.find().then(allUsers => {
+    res.json(allUsers)
+  })
+})
+
+app.post("/users", (req, res) => {
+  const { password } = req.body
+  const hash  = bcrypt.hashSync(password)
+  const user = new Login({
+    username: req.body.username,
+    email: req.body.email,
+    password: hash
+  })
+
+  user.save().then(() => {
+    res.status(201).json({ message: "added new user" })
+  }).catch(err => {
+    res.status(400).json({ message: "user not added", errors: err.errors })
+  })
+})
 
 app.get("/answer", (req, res) => {
   Answer.find().then( answer => res.json(answer))
@@ -63,9 +91,9 @@ app.post("/answer", (req, res) => {
   const answer = new Answer(req.body)
 
   answer.save().then(() => {
-  res.status(201).json({ message: "Added information" })
+  res.status(201).json({ message: "added answers" })
   }).catch(err => {
-  res.status(400).json({ message: "No!", errors: err.errors })
+  res.status(400).json({ message: "answers not added", errors: err.errors })
   })
 })
 

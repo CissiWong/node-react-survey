@@ -41,10 +41,9 @@ export default class HomeView extends React.Component {
       body: JSON.stringify(this.state.results)
     }).then(response => {
       if (response.status === 201) {
-        console.log("yay!")
+        return response.json()
       } else {
-        console.log("oh no!")
-      //validation error //
+        console.log("oh no!", response.status === 404)
       }
     })
   }

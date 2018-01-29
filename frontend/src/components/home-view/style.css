@@ -245,27 +245,6 @@ button p {
       padding: 10%;
    }
 
-   div p {
-     font-size: 1.7em;
-   }
-
-   div p.bold {
-     font-size: 1.7em;
-   }
-
-   div h1 {
-     font-size: 2em;
-   }
-
-   div h2 {
-     font-size: 1.9em;
-   }
-
-   button p {
-     font-size: 1.7em;
-     margin: 0;
-   }
-
   button {
     width: 300px;
     height: 60px;
@@ -311,27 +290,6 @@ button p {
     .form-container {
       margin: auto;
       padding: 10%;
-   }
-
-   div p {
-     font-size: 1.9em;
-   }
-
-   div p.bold {
-     font-size: 1.9em;
-   }
-
-   div h1 {
-     font-size: 2.2em;
-   }
-
-   div h2 {
-     font-size: 2.1em;
-   }
-
-   button p {
-     font-size: 1.9em;
-     margin: 0;
    }
 
   button {
