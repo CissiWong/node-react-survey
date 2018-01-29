@@ -38,7 +38,7 @@ export default class HomeView extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(this.state.results)
+      body: JSON.stringify(formState)
     }).then(response => {
       if (response.status === 201) {
         return response.json()
@@ -64,7 +64,7 @@ export default class HomeView extends React.Component {
         <main className="form-container">
           {this.state.start && !this.state.results && <Form
             onDone={this.handleDone} />}
-          {this.props.currentQuestionIndex >= data.length ? <Finish /> : null}
+          {this.state.results && <Finish />}
           {!this.state.start &&
             <div className="start">
               <div>Klicka här för att börja</div>

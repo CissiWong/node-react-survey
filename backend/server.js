@@ -101,10 +101,11 @@ app.post("/login", (req, res) => {
 })
 
 app.get("/answer", (req, res) => {
-  Answer.find().then( answer => res.json(answer))
+  Answer.find().then(answer => res.json(answer))
 })
 
 app.post("/answer", (req, res) => {
+  console.log(req.body)
   const answer = new Answer(req.body)
 
   answer.save().then(() => {
