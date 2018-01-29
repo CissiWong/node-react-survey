@@ -68,18 +68,35 @@ app.get("/users", (req, res) => {
 })
 
 app.post("/users", (req, res) => {
-  const { password } = req.body
+  const { username } = req.body
   const hash  = bcrypt.hashSync(password)
   const user = new Login({
     username: req.body.username,
     email: req.body.email,
-    password: hash
+    password: hash,
+    accessToken: req.body.accessToken
   })
 
-  user.save().then(() => {
-    res.status(201).json({ message: "added new user" })
+  user.save()
+    .then(() => { res.status(201).json(user)
   }).catch(err => {
     res.status(400).json({ message: "user not added", errors: err.errors })
+  })
+})
+
+app.post("/login", (req, res) => {
+  Login.findOne({ username: req.body.username })
+  .then(user => {
+    console.log(user)
+    if(user && bcrypt.compareSync(req.body.password, user.password)) {
+      res.json(user)
+    } else {
+      res.status(401).json({
+        errors: {
+          username: "Username is invalid"
+        }
+      })
+    }
   })
 })
 
