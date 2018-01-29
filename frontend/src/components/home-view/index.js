@@ -1,6 +1,5 @@
 import React from "react"
 import "./style.css"
-import data from "../data.js"
 import Form from "../form"
 import Finish from "../finish"
 import logo from "./fb_logga_transp.png"
@@ -78,7 +77,7 @@ export default class HomeView extends React.Component {
         <footer className="footer">
           <div className="column-one">
             <h2>Födelsebyrån</h2>
-            <p>Födelsebyrån är patientföreningen för födande samt graviditets- och förlossningsskadade samt anhöriga. Vi verkar för en rättvis och säker vård för alla.</p>
+             <p>Födelsebyrån är patientföreningen för födande samt graviditets- och förlossningsskadade samt anhöriga. Vi verkar för en rättvis och säker vård för alla.</p>
           </div>
           <div className="column-two">
             <div className="ig-logo">

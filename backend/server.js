@@ -6,8 +6,11 @@ import uuid from "uuid/v4"
 import bcrypt from "bcrypt-nodejs"
 
 const app = express()
+const getRealIp = require('express-real-ip')()
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
 
 
 // Tells express to add the "Access-Control-Allow-Origin" header to allow requests from anywhere.
@@ -31,10 +34,42 @@ mongoose.connection.once("open", () => console.log("Connected to mongodb"))
 const Answer = mongoose.model("Answer", {
   id: Number,
   score: [Number],
-  totalScore: Number
+  totalScore: Number,
+  ip: String
 })
 
-//model for Login and admin page //
+app.use(getRealIp)
+
+app.get('/', (req, res, next) => {
+  res.send(req.ip)
+  next()
+})
+
+app.get("/answer", (req, res) => {
+  Answer.find().then(answer => res.json(answer))
+})
+
+app.post("/answer", (req, res) => {
+  console.log(req.body, req.ip)
+  const answer = new Answer({
+    id: req.body.id,
+    score: req.body.score,
+    totalScore: req.body.totalScore,
+    ip: req.ip
+  })
+
+  answer.save().then(() => {
+  res.status(201).json({ message: "added answers" })
+  }).catch(err => {
+  res.status(400).json({ message: "answers not added", errors: err.errors })
+  })
+})
+
+app.listen(8080, () =>
+  console.log("Example app listening on port 8080!")
+)
+
+// model for Login and admin page //
 
 const Login = mongoose.model("Login", {
   username: {
@@ -54,12 +89,12 @@ const Login = mongoose.model("Login", {
     default: () => uuid()
   }
 })
-//
-// app.get("/", (req, res) => {
-//   const password = "adminpassword"
-//   const hash = bcrypt.hashSync(password)
-//   res.send("password")
-// })
+
+app.get("/", (req, res) => {
+  const password = "adminpassword"
+  const hash = bcrypt.hashSync(password)
+  res.send("password")
+})
 
 app.get("/users", (req, res) => {
   Login.find().then(allUsers => {
@@ -99,22 +134,3 @@ app.post("/login", (req, res) => {
     }
   })
 })
-
-app.get("/answer", (req, res) => {
-  Answer.find().then(answer => res.json(answer))
-})
-
-app.post("/answer", (req, res) => {
-  console.log(req.body)
-  const answer = new Answer(req.body)
-
-  answer.save().then(() => {
-  res.status(201).json({ message: "added answers" })
-  }).catch(err => {
-  res.status(400).json({ message: "answers not added", errors: err.errors })
-  })
-})
-
-app.listen(8080, () =>
-  console.log("Example app listening on port 8080!")
-)
