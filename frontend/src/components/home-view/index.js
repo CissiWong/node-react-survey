@@ -61,12 +61,18 @@ export default class HomeView extends React.Component {
           <p>Självklart är du anonym.</p>
         </div>
         <main className="form-container">
-          {this.state.start && !this.state.results && <Form
-            onDone={this.handleDone} />}
-          {this.state.results && <Finish />}
+          {this.state.start && !this.state.results && <Form onDone={this.handleDone} />}
+          {this.state.results && <Finish totalScore={this.state.results.totalScore} />}
           {!this.state.start &&
             <div className="start">
-              <div>Klicka här för att börja</div>
+              <div>
+                <p>Du svarar på varje fråga genom att kryssa i ”ja” eller ”nej”.</p>
+                <p>Summan av dina svar, där ett ”ja” ger ett poängvärde och ett ”nej” ger 0 poäng, kommer att visas när du svarat på sista frågan.</p>
+                <p>Det kommer även att komma upp en text med information och råd om vad nästa steg kan bli, om poängvärdet blev högt.</p>
+                <p>Vi vill avsluta med att varna för att formuläret innehåller referenser till våld och tvång och kan verka triggande och råder vi i så fall dig att söka stöd och hjälp.</p>
+                <p>Ta gärna kontakt med oss här (länk) så kan vi slussa dig vidare.</p>
+                <p>Vi finns här för att hjälpa till!</p>
+              </div>
               <button
                 className="start-btn"
                 type="submit"
