@@ -1,4 +1,6 @@
 import React from "react"
+import SimplePieChart from "../simplepiechart.js"
+// import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
 import "./style.css"
 import Form from "../form"
 import Finish from "../finish"
@@ -16,6 +18,13 @@ export default class HomeView extends React.Component {
       results: null
     }
   }
+
+  // dataForChart = () => (
+  //  Object.keys(this.state.results).map(totalScore => ({
+  //    x: totalScore,
+  //    y: this.state.results[totalScore]
+  //   }))
+  // )
 
   handleStart = event => {
     console.log("clicked!")
@@ -59,7 +68,34 @@ export default class HomeView extends React.Component {
           <p>som ett hjälpmedel för dig att se om det du vet, upplever eller misstänker hände, kanske faktiskt rör sig om en kränkning, ett övergrepp eller ett åtalbart brott.</p>
           <p>Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda det som ett sätt att få klarhet.</p>
           <p>Självklart är du anonym.</p>
+          <div>
+          <SimplePieChart />
+          </div>
         </div>
+        {/* <div className="data">
+          <ScatterChart
+            width={400}
+            height={400}
+            margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+          <XAxis
+              dataKey={'x'}
+              type="number"
+              name='stature'
+              unit='cm'/>
+          <YAxis
+              dataKey={'y'}
+              type="number"
+              name='weight'
+              unit='kg'/>
+          	<CartesianGrid />
+            <Scatter
+              name='A school'
+              data={this.dataForChart()}
+              fill='#8884d8'/>
+          	<Tooltip
+              cursor={{strokeDasharray: '3 3'}}/>
+          </ScatterChart>
+        </div> */}
         <main className="form-container">
           {this.state.start && !this.state.results && <Form onDone={this.handleDone} />}
           {this.state.results && <Finish totalScore={this.state.results.totalScore} />}
