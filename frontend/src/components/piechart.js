@@ -1,17 +1,30 @@
 import React from "react"
-import { ResponsivePie } from '@nivo/pie'
 
 export default class ResponsivePie extends React.Component {
   render() {
-    return(
+    return (
       <div>
-      <ResponsivePie
-          data={/* see data tab */}
+        <ResponsivePie
+          data={[
+            {
+              "id": "ruby",
+              "label": "ruby",
+              "value": 100,
+              "color": "hsl(67, 70%, 50%)"
+            },
+            {
+              "id": "scala",
+              "label": "scala",
+              "value": 45,
+              "color": "hsl(283, 70%, 50%)"
+            }
+          ]}
+
           margin={{
-              "top": 40,
-              "right": 80,
-              "bottom": 80,
-              "left": 80
+            "top": 40,
+            "right": 80,
+            "bottom": 80,
+            "left": 80
           }}
           innerRadius={0.05}
           padAngle={0.7}
@@ -34,17 +47,16 @@ export default class ResponsivePie extends React.Component {
           motionStiffness={90}
           motionDamping={15}
           legends={[
-              {
-                  "anchor": "bottom",
-                  "direction": "row",
-                  "translateY": 56,
-                  "itemWidth": 100,
-                  "itemHeight": 14,
-                  "symbolSize": 14,
-                  "symbolShape": "circle"
-              }
-          ]}
-      />
+            {
+              "anchor": "bottom",
+              "direction": "row",
+              "translateY": 56,
+              "itemWidth": 100,
+              "itemHeight": 14,
+              "symbolSize": 14,
+              "symbolShape": "circle"
+            }
+          ]} />
       </div>
     )
   }
