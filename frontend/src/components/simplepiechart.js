@@ -9,8 +9,8 @@ export default class SimplePieChart extends React.Component {
     ]
 
     const COLORS =
-    ["#0088FE",
-      "#00C49F",
+    ["#fefe55",
+      "#ff32f6",
       "#FFBB28",
       "#FF8042"]
 
@@ -26,7 +26,7 @@ export default class SimplePieChart extends React.Component {
         <text
           x={x}
           y={y}
-          fill="white"
+          fill="black"
           textAnchor={x > cx ? "start" : "end"}
           dominantBaseline="central">
           {`${(percent * 100).toFixed(0)}%`}
@@ -36,7 +36,7 @@ export default class SimplePieChart extends React.Component {
     return (
       <div>
         <PieChart
-          width={800}
+          width={400}
           height={400}
           onMouseEnter={this.onPieEnter}>
           <Pie

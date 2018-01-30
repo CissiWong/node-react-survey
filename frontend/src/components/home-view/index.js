@@ -68,7 +68,7 @@ export default class HomeView extends React.Component {
           <p>som ett hjälpmedel för dig att se om det du vet, upplever eller misstänker hände, kanske faktiskt rör sig om en kränkning, ett övergrepp eller ett åtalbart brott.</p>
           <p>Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda det som ett sätt att få klarhet.</p>
           <p>Självklart är du anonym.</p>
-          <div>
+          <div className="chart">
           <SimplePieChart />
           </div>
         </div>
