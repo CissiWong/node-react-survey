@@ -151,15 +151,6 @@ button p {
   div p.bold {
     font-size: 1em;
   }
-
-  /* label {
-    width: 30%;
-    display: flex;
-  }
-
-  label p {
-    margin: 0;
-  } */
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -210,15 +201,6 @@ button p {
     font-size: 1.2em;
     margin: 0;
   }
-
-  /* label {
-    width: 30%;
-    display: flex;
-  }
-
-  label p {
-    margin: 0;
-  } */
 }
 
 @media (min-width: 1024px) and (max-width: 1224px) {
@@ -258,15 +240,6 @@ button p {
     height: 60px;
     margin: 10% 0 10% 0;
   }
-/*
-  label {
-    width: 30%;
-    display: flex;
-  }
-
-  label p {
-    margin: 0;
-  } */
 
   div p {
     font-size: 1.5em;
@@ -313,15 +286,6 @@ button p {
     height: 60px;
     margin: 10% 0 10% 0;
   }
-
-  /* label {
-    width: 30%;
-    display: flex;
-  }
-
-  label p {
-    margin: 0;
-  } */
 
   div p {
     font-size: 1.5em;
