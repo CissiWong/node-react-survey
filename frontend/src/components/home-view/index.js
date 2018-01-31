@@ -1,8 +1,6 @@
 import React from "react"
-// import SimplePieChart from "../simplepiechart.js"
-// import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
-// import { render } from 'react-dom'
-// import { ResponsivePie } from "@nivo/pie"
+import { ResponsivePie } from "@nivo/pie"
+import { ResponsiveBar } from "@nivo/bar"
 import "./style.css"
 import Form from "../form"
 import Finish from "../finish"
@@ -16,17 +14,9 @@ export default class HomeView extends React.Component {
     super(props)
     this.state = {
       start: false,
-      done: true,
       results: null
     }
   }
-
-  // dataForChart = () => (
-  //  Object.keys(this.state.results).map(totalScore => ({
-  //    x: totalScore,
-  //    y: this.state.results[totalScore]
-  //   }))
-  // )
 
   handleStart = event => {
     console.log("clicked!")
@@ -58,6 +48,13 @@ export default class HomeView extends React.Component {
     })
   }
 
+  dataForChart = () => (
+    Object.keys(this.state.results).map(totalScore => ({
+      data: totalScore,
+      keys: this.state.results[totalScore]
+    }))
+  )
+
   render() {
     return (
       <div>
@@ -71,19 +68,20 @@ export default class HomeView extends React.Component {
           <p>Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda det som ett sätt att få klarhet.</p>
           <p>Självklart är du anonym.</p>
         </div>
-        {/* <div className="chart">
+        <div className="chart">
+          <p>Stats</p>
           <ResponsivePie
             data={[
               {
                 id: "med sjukpenning",
                 label: "med sjukpenning",
-                value: 800,
+                value: 34,
                 color: "hsl(67, 70%, 50%)"
               },
               {
                 id: "utan sjukpenning",
                 label: "utan sjukpenning",
-                value: 200,
+                value: 66,
                 color: "hsl(283, 70%, 50%)"
               }
             ]}
@@ -113,18 +111,8 @@ export default class HomeView extends React.Component {
             animate
             motionStiffness={90}
             motionDamping={15}
-            legends={[
-              {
-                anchor: "bottom",
-                direction: "row",
-                translateY: 56,
-                itemWidth: 100,
-                itemHeight: 14,
-                symbolSize: 14,
-                symbolShape: "circle"
-              }
-            ]} />
-        </div> */}
+            legends={[]} />
+        </div>
         <main className="form-container">
           {this.state.start && !this.state.results && <Form onDone={this.handleDone} />}
           {this.state.results && <Finish totalScore={this.state.results.totalScore} />}
@@ -145,6 +133,112 @@ export default class HomeView extends React.Component {
               </button>
             </div>}
         </main>
+        <div className="data-vis">
+
+          <ResponsiveBar
+            data={[]}
+            keys={[
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16"
+            ]}
+            indexBy="poängsumma"
+            margin={{
+              top: 50,
+              right: 130,
+              bottom: 50,
+              left: 60
+            }}
+            padding={0.3}
+            colors="pastel2"
+            colorBy="id"
+            defs={[
+              {
+                id: "dots",
+                type: "patternDots",
+                background: "inherit",
+                color: "#38bcb2",
+                size: 4,
+                padding: 1,
+                stagger: true
+              },
+              {
+                id: "lines",
+                type: "patternLines",
+                background: "inherit",
+                color: "#eed312",
+                rotation: -45,
+                lineWidth: 6,
+                spacing: 10
+              }
+            ]}
+            fill={[
+              {
+                match: {
+                  id: "fries"
+                },
+                id: "dots"
+              },
+              {
+                match: {
+                  id: "sandwich"
+                },
+                id: "lines"
+              }
+            ]}
+            borderColor="inherit:darker(1.6)"
+            axisBottom={{
+              orient: "bottom",
+              tickSize: 5,
+              tickPadding: 5,
+              tickRotation: 0,
+              legend: "poängsumma",
+              legendPosition: "center",
+              legendOffset: 36
+            }}
+            axisLeft={{
+              orient: "left",
+              tickSize: 5,
+              tickPadding: 5,
+              tickRotation: 0,
+              legend: "antal deltagare",
+              legendPosition: "center",
+              legendOffset: -40
+            }}
+            enableLabel={false}
+            labelSkipWidth={12}
+            labelSkipHeight={12}
+            labelTextColor="inherit:darker(1.6)"
+            animate={true}
+            motionStiffness={90}
+            motionDamping={15}
+            legends={[
+              {
+                dataFrom: "keys",
+                anchor: "bottom-right",
+                direction: "column",
+                translateX: 120,
+                itemWidth: 100,
+                itemHeight: 20,
+                itemsSpacing: 2,
+                symbolSize: 20
+              }
+            ]} />
+        </div>
         <footer className="footer">
           <div className="column-one">
             <h2>Födelsebyrån</h2>

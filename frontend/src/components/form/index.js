@@ -2,6 +2,7 @@ import React from "react"
 import Question from "../question"
 import data from "../data.js"
 
+
 export default class Form extends React.Component {
   constructor(props) {
     super(props)
