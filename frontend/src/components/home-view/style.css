@@ -27,7 +27,7 @@
   flex-direction: column;
   font-size: 16px;
 }
-.score {
+/* .score {
   display: flex;
   flex-wrap: wrap;
 }
@@ -49,7 +49,7 @@ label {
 
 label p {
   margin: 0;
-}
+} */
 
 button {
   align-content: flex-start;
@@ -127,15 +127,6 @@ button p {
   align-items: left;
 }
 
-svg.recharts-surface {
-
-}
-
-g.recharts-layer .recharts-pie {
-
-}
-
-
 @media (min-width: 480px) and (max-width: 768px) {
   .logo {
     max-width: 60%;
@@ -161,14 +152,14 @@ g.recharts-layer .recharts-pie {
     font-size: 1em;
   }
 
-  label {
+  /* label {
     width: 30%;
     display: flex;
   }
 
   label p {
     margin: 0;
-  }
+  } */
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -220,14 +211,14 @@ g.recharts-layer .recharts-pie {
     margin: 0;
   }
 
-  label {
+  /* label {
     width: 30%;
     display: flex;
   }
 
   label p {
     margin: 0;
-  }
+  } */
 }
 
 @media (min-width: 1024px) and (max-width: 1224px) {
@@ -267,7 +258,7 @@ g.recharts-layer .recharts-pie {
     height: 60px;
     margin: 10% 0 10% 0;
   }
-
+/*
   label {
     width: 30%;
     display: flex;
@@ -275,6 +266,13 @@ g.recharts-layer .recharts-pie {
 
   label p {
     margin: 0;
+  } */
+
+  div p {
+    font-size: 1.5em;
+  }
+  div p.bold {
+    font-size: 1.5em;
   }
 }
 
@@ -307,6 +305,7 @@ g.recharts-layer .recharts-pie {
     .form-container {
       margin: auto;
       padding: 10%;
+      height: auto;
    }
 
   button {
@@ -315,12 +314,23 @@ g.recharts-layer .recharts-pie {
     margin: 10% 0 10% 0;
   }
 
-  label {
+  /* label {
     width: 30%;
     display: flex;
   }
 
   label p {
     margin: 0;
+  } */
+
+  div p {
+    font-size: 1.5em;
+  }
+
+  div p.bold {
+    font-size: 1.5em;
+  }
+  div h2 {
+    font-size: 1.6em;
   }
 }

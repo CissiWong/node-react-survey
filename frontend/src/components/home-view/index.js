@@ -1,6 +1,8 @@
 import React from "react"
-import SimplePieChart from "../simplepiechart.js"
+// import SimplePieChart from "../simplepiechart.js"
 // import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
+// import { render } from 'react-dom'
+// import { ResponsivePie } from "@nivo/pie"
 import "./style.css"
 import Form from "../form"
 import Finish from "../finish"
@@ -68,33 +70,60 @@ export default class HomeView extends React.Component {
           <p>som ett hjälpmedel för dig att se om det du vet, upplever eller misstänker hände, kanske faktiskt rör sig om en kränkning, ett övergrepp eller ett åtalbart brott.</p>
           <p>Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda det som ett sätt att få klarhet.</p>
           <p>Självklart är du anonym.</p>
-          <div className="chart">
-          <SimplePieChart />
-          </div>
         </div>
-        {/* <div className="data">
-          <ScatterChart
-            width={400}
-            height={400}
-            margin={{top: 20, right: 20, bottom: 20, left: 20}}>
-          <XAxis
-              dataKey={'x'}
-              type="number"
-              name='stature'
-              unit='cm'/>
-          <YAxis
-              dataKey={'y'}
-              type="number"
-              name='weight'
-              unit='kg'/>
-          	<CartesianGrid />
-            <Scatter
-              name='A school'
-              data={this.dataForChart()}
-              fill='#8884d8'/>
-          	<Tooltip
-              cursor={{strokeDasharray: '3 3'}}/>
-          </ScatterChart>
+        {/* <div className="chart">
+          <ResponsivePie
+            data={[
+              {
+                id: "med sjukpenning",
+                label: "med sjukpenning",
+                value: 800,
+                color: "hsl(67, 70%, 50%)"
+              },
+              {
+                id: "utan sjukpenning",
+                label: "utan sjukpenning",
+                value: 200,
+                color: "hsl(283, 70%, 50%)"
+              }
+            ]}
+            margin={{
+              top: 40,
+              right: 80,
+              bottom: 80,
+              left: 80
+            }}
+            innerRadius={0.05}
+            padAngle={0.7}
+            cornerRadius={3}
+            colors="pastel1"
+            colorBy="id"
+            borderColor="inherit:darker(0.6)"
+            radialLabelsSkipAngle={10}
+            radialLabelsTextXOffset={6}
+            radialLabelsTextColor="#333333"
+            radialLabelsLinkOffset={0}
+            radialLabelsLinkDiagonalLength={16}
+            radialLabelsLinkHorizontalLength={24}
+            radialLabelsLinkStrokeWidth={1}
+            radialLabelsLinkColor="inherit"
+            enableSlicesLabels={false}
+            slicesLabelsSkipAngle={10}
+            slicesLabelsTextColor="#333333"
+            animate
+            motionStiffness={90}
+            motionDamping={15}
+            legends={[
+              {
+                anchor: "bottom",
+                direction: "row",
+                translateY: 56,
+                itemWidth: 100,
+                itemHeight: 14,
+                symbolSize: 14,
+                symbolShape: "circle"
+              }
+            ]} />
         </div> */}
         <main className="form-container">
           {this.state.start && !this.state.results && <Form onDone={this.handleDone} />}
