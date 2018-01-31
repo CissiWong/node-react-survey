@@ -63,33 +63,40 @@ export default class HomeView extends React.Component {
         </header>
         <div className="intro-text">
           <p>Det här formuläret har vi tagit fram i förhoppning om att vi ska få en bättre uppfattning om vidden av problemet med förlossnings- och eftervård i Sverige idag.</p>
-          <p>Det är också för att du som vårdtagare/patient ska få en chans att sätta ord på vad som egentligen hände i förlossningsrummet och/eller tiden efter,</p>
-          <p>som ett hjälpmedel för dig att se om det du vet, upplever eller misstänker hände, kanske faktiskt rör sig om en kränkning, ett övergrepp eller ett åtalbart brott.</p>
+          <p>Det är också för att du som vårdtagare/patient ska få möjlighet att sätta ord på vad som egentligen hände i förlossningsrummet och/eller tiden efter - som ett hjälpmedel för dig att se om det som hände faktiskt rör sig om en kränkning, ett övergrepp eller ett brott.</p>
           <p>Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda det som ett sätt att få klarhet.</p>
           <p>Självklart är du anonym.</p>
         </div>
         <div className="chart">
-          <p>Stats</p>
+          <div className="rubrik">
+            <h2>25 - 34% av alla kvinnor upplever sin förlossning som traumatisk.</h2>
+          </div>
           <ResponsivePie
             data={[
               {
-                id: "med sjukpenning",
-                label: "med sjukpenning",
-                value: 34,
+                id: "25",
+                label: "25 procent",
+                value: 25,
                 color: "hsl(67, 70%, 50%)"
               },
               {
-                id: "utan sjukpenning",
-                label: "utan sjukpenning",
+                id: "34",
+                label: "34 procent",
+                value: 9,
+                color: "hsl(67, 70%, 50%)"
+              },
+              {
+                id: "66",
+                label: "66 procent",
                 value: 66,
                 color: "hsl(283, 70%, 50%)"
               }
             ]}
             margin={{
-              top: 40,
-              right: 80,
+              top: 0,
+              right: 0,
               bottom: 80,
-              left: 80
+              left: 0
             }}
             innerRadius={0.05}
             padAngle={0.7}
@@ -134,7 +141,6 @@ export default class HomeView extends React.Component {
             </div>}
         </main>
         <div className="data-vis">
-
           <ResponsiveBar
             data={[]}
             keys={[

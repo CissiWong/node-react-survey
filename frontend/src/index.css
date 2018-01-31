@@ -34,6 +34,13 @@ p {
   font-weight: 700;
 }
 
+.yellow {
+  text-decoration-color: #fefe55;
+}
+.pink {
+  
+}
+
 button {
   font-family: 'Libre Baskerville', serif;
   font-size: 16px;
