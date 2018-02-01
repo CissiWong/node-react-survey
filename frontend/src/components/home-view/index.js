@@ -109,17 +109,17 @@ export default class HomeView extends React.Component {
           </div>
           <div className="column-two">
             <div className="ig-logo">
-              <a href="https://www.instagram.com/fodelsebyran.se/">
+              <a href="https://www.instagram.com/fodelsebyran.se/" rel="noopener noreferrer" target="_blank">
                 <img src={iglogo} alt="instagramlogo" />
               </a>
             </div>
             <div className="fb-logo">
-              <a href="https://www.facebook.com/fodelsebyran/" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/fodelsebyran/" rel="noopener noreferrer" target="_blank">
                 <img src={fblogo} alt="facebooklogo" />
               </a>
             </div>
             <div className="email">
-              <a href="mailto:kontakt@fodelsebyran.se" rel="noopener noreferrer">
+              <a href="mailto:kontakt@fodelsebyran.se" rel="noopener noreferrer" target="_blank">
                 <img src={email} alt="email" />
               </a>
             </div>
