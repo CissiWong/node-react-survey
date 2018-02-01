@@ -123,6 +123,11 @@ button p {
   text-decoration: underline;
   color: #000;
 }
+.finish a {
+  background-color: #acffff;
+  text-decoration: underline;
+  color: #000;
+}
 
 
 @media (min-width: 480px) and (max-width: 768px) {
