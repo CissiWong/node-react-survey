@@ -2,7 +2,6 @@ import React from "react"
 import Question from "../question"
 import data from "../data.js"
 
-
 export default class Form extends React.Component {
   constructor(props) {
     super(props)
@@ -13,23 +12,29 @@ export default class Form extends React.Component {
     }
   }
 
-  handleQuestionAnswer = score => {
+  handleQuestionAnswer = selectedScore => {
     if (this.state.currentQuestionIndex + 1 === data.length) {
       this.props.onDone(this.state)
     }
     this.setState({
       currentQuestionIndex: this.state.currentQuestionIndex + 1,
-      score: [score, ...this.state.score]
+      score: [...this.state.score, selectedScore]
     }, () => {
+      console.log("This is the array", this.state.score)
       const reducer = (accumulator, currentValue) => accumulator + currentValue
+      parseInt(this.state.score, 10)
+      // const totalScore = (this.state.score + selectedScore)
       this.setState({
         totalScore: this.state.score.reduce(reducer)
+      }, () => {
+        console.log("this should be adding", this.state.totalScore)
       })
     })
   }
 
   render() {
     const question = data[this.state.currentQuestionIndex]
+    console.log(data.length)
     return (
       <div>
         <Question

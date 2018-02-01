@@ -12,12 +12,24 @@ export default class Question extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
-    this.props.onAnswered(this.props.score)
+
+    if (this.state.selectedScore === null) {
+
+    } else {
+      console.log("the current score on submit is", this.state.selectedScore)
+      this.props.onAnswered(this.state.selectedScore)
+      this.setState({
+        selectedScore: null
+      })
+    }
+
   }
 
   handleScoreChange = event => {
     this.setState({
-      selectedScore: event.target.value
+      selectedScore: parseInt(event.target.value, 10)
+    }, () => {
+      console.log("this is handleScoreChange", this.state.selectedScore)
     })
   }
 
@@ -33,9 +45,9 @@ export default class Question extends React.Component {
             <ul>
               <li>
                 <input
-                  onChange={this.handleScoreChange}
                   value={0}
-                  checked={this.state.selectedScore === "0"}
+                  onChange={this.handleScoreChange}
+                  checked={this.state.selectedScore === 0}
                   type="radio"
                   id="no-option" />
                 <label
@@ -48,7 +60,7 @@ export default class Question extends React.Component {
                 <input
                   value={this.props.score}
                   onChange={this.handleScoreChange}
-                  checked={parseInt(this.state.selectedScore, 10) === this.props.score}
+                  checked={this.state.selectedScore === this.props.score}
                   type="radio"
                   id="yes-option" />
                 <label htmlFor="yes-option">
@@ -62,6 +74,7 @@ export default class Question extends React.Component {
           </div>
         </div>
         <button
+          disabled={this.state.selectedScore === null}
           className="next-btn"
           type="submit">
           <p>{this.props.buttonText}</p>

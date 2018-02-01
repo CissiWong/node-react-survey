@@ -1,6 +1,7 @@
 import React from "react"
 import { ResponsivePie } from "@nivo/pie"
 import { ResponsiveBar } from "@nivo/bar"
+import NoScoreFinish from "../no-score-finish"
 import "./style.css"
 import Form from "../form"
 import Finish from "../finish"
@@ -47,13 +48,13 @@ export default class HomeView extends React.Component {
       }
     })
   }
-
-  dataForChart = () => (
-    Object.keys(this.state.results).map(totalScore => ({
-      data: totalScore,
-      keys: this.state.results[totalScore]
-    }))
-  )
+  //
+  // dataForChart = () => (
+  //   Object.keys(this.state.results).map(totalScore => ({
+  //     data: totalScore,
+  //     keys: this.state.results[totalScore]
+  //   }))
+  // )
 
   render() {
     return (
@@ -123,6 +124,7 @@ export default class HomeView extends React.Component {
         <main className="form-container">
           {this.state.start && !this.state.results && <Form onDone={this.handleDone} />}
           {this.state.results && <Finish totalScore={this.state.results.totalScore} />}
+          {/* {this.state.results < 1 && !this.state.start && <NoScoreFinish />} */}
           {!this.state.start &&
             <div className="start">
               <div>

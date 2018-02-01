@@ -8,19 +8,16 @@ import bcrypt from "bcrypt-nodejs"
 const app = express()
 const getRealIp = require('express-real-ip')()
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/mongoLecture"
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
-
 
 // Tells express to add the "Access-Control-Allow-Origin" header to allow requests from anywhere.
 app.use(cors())
 
-
 // Connect to MongoDB, on the "products-api" database. If the db doesn't
 // exist, mongo will create it.
-mongoose.connect("mongodb://localhost/fodelsebyran-api", { useMongoClient: true })
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/fodelsebyran-api"
+mongoose.connect(mongoUrl, { useMongoClient: true })
 
 // This makes mongo use ES6 promises, instead of its own implementation
 mongoose.Promise = Promise
