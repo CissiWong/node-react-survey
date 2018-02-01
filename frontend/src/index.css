@@ -29,6 +29,12 @@ p {
   font-weight: 400;
 }
 
+.start a {
+  background-color: #ff32f6;
+  text-decoration: underline;
+  color: #000;
+}
+
 .bold {
   font-size: 16px;
   font-weight: 700;
@@ -38,7 +44,7 @@ p {
   text-decoration-color: #fefe55;
 }
 .pink {
-  
+
 }
 
 button {
