@@ -12,17 +12,14 @@ export default class Question extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
-
     if (this.state.selectedScore === null) {
 
     } else {
-      console.log("the current score on submit is", this.state.selectedScore)
       this.props.onAnswered(this.state.selectedScore)
       this.setState({
         selectedScore: null
       })
     }
-
   }
 
   handleScoreChange = event => {
@@ -79,7 +76,6 @@ export default class Question extends React.Component {
           type="submit">
           <p>{this.props.buttonText}</p>
         </button>
-        {/* </div> */}
       </form>
     )
   }

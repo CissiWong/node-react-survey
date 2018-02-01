@@ -9,6 +9,7 @@ import logo from "./fb_logga_transp.png"
 import iglogo from "./instagram.svg"
 import fblogo from "./facebook.svg"
 import email from "./send.svg"
+import stats from "./FB_graphics_19.png"
 
 export default class HomeView extends React.Component {
   constructor(props) {
@@ -95,7 +96,7 @@ export default class HomeView extends React.Component {
         </div>
         <div className="chart">
           <div className="rubrik">
-            <h2>25 - 34% av alla kvinnor upplever sin förlossning som traumatisk.</h2>
+            <img src={stats} alt="" />
           </div>
         </div>
         <main className="form-container">
