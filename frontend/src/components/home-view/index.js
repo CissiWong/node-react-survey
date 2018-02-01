@@ -33,7 +33,7 @@ export default class HomeView extends React.Component {
       results: formState
     })
 
-    fetch("http://localhost:8080/answer", {
+    fetch("https://fodelsebyran.herokuapp.com/answer", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -48,8 +48,38 @@ export default class HomeView extends React.Component {
       }
     })
   }
-  //
-  //
+
+  startDiv = () => (
+    <div className="start">
+      <div>
+        <p>Du svarar på varje fråga genom att kryssa i ”ja” eller ”nej”.</p>
+        <p>Summan av dina svar, där ett ”ja” ger ett poängvärde och ett ”nej” ger 0 poäng, kommer att visas när du svarat på sista frågan.</p>
+        <p>Det kommer även att komma upp en text med information och råd om vad nästa steg kan bli, om poängvärdet blev högt.</p>
+        <p>Vi vill avsluta med att varna för att formuläret innehåller referenser till våld och tvång och kan verka triggande och råder vi i så fall dig att söka stöd och hjälp.</p>
+        <p>Ta gärna kontakt med oss här (länk) så kan vi slussa dig vidare.</p>
+        <p>Vi finns här för att hjälpa till!</p>
+      </div>
+      <button
+        className="start-btn"
+        type="submit"
+        onClick={this.handleStart}><p>Börja</p>
+      </button>
+    </div>
+  )
+
+  formOrFinish = () => {
+    if (this.state.start && !this.state.results) {
+      return <Form onDone={this.handleDone} />
+    } else if (this.state.results) {
+      if (this.state.results.totalScore === 0) {
+        return <NoScoreFinish />
+      } else {
+        return <Finish totalScore={this.state.results.totalScore} />
+      }
+    } else {
+      return this.startDiv()
+    }
+  }
 
   render() {
     return (
@@ -67,181 +97,10 @@ export default class HomeView extends React.Component {
           <div className="rubrik">
             <h2>25 - 34% av alla kvinnor upplever sin förlossning som traumatisk.</h2>
           </div>
-          <ResponsivePie
-            data={[
-              {
-                id: "25",
-                label: "25 procent",
-                value: 25,
-                color: "hsl(67, 70%, 50%)"
-              },
-              {
-                id: "34",
-                label: "34 procent",
-                value: 9,
-                color: "hsl(67, 70%, 50%)"
-              },
-              {
-                id: "66",
-                label: "66 procent",
-                value: 66,
-                color: "hsl(283, 70%, 50%)"
-              }
-            ]}
-            margin={{
-              top: 0,
-              right: 0,
-              bottom: 80,
-              left: 0
-            }}
-            innerRadius={0.05}
-            padAngle={0.7}
-            cornerRadius={3}
-            colors="pastel1"
-            colorBy="id"
-            borderColor="inherit:darker(0.6)"
-            radialLabelsSkipAngle={10}
-            radialLabelsTextXOffset={6}
-            radialLabelsTextColor="#333333"
-            radialLabelsLinkOffset={0}
-            radialLabelsLinkDiagonalLength={16}
-            radialLabelsLinkHorizontalLength={24}
-            radialLabelsLinkStrokeWidth={1}
-            radialLabelsLinkColor="inherit"
-            enableSlicesLabels={false}
-            slicesLabelsSkipAngle={10}
-            slicesLabelsTextColor="#333333"
-            animate
-            motionStiffness={90}
-            motionDamping={15}
-            legends={[]} />
         </div>
         <main className="form-container">
-          {this.state.start && !this.state.results && <Form onDone={this.handleDone} />}
-          {this.state.results && <Finish totalScore={this.state.results.totalScore} />}
-          {/* {this.state.results < 1 && !this.state.start && <NoScoreFinish />} */}
-          {!this.state.start &&
-            <div className="start">
-              <div>
-                <p>Du svarar på varje fråga genom att kryssa i ”ja” eller ”nej”.</p>
-                <p>Summan av dina svar, där ett ”ja” ger ett poängvärde och ett ”nej” ger 0 poäng, kommer att visas när du svarat på sista frågan.</p>
-                <p>Det kommer även att komma upp en text med information och råd om vad nästa steg kan bli, om poängvärdet blev högt.</p>
-                <p>Vi vill avsluta med att varna för att formuläret innehåller referenser till våld och tvång och kan verka triggande och råder vi i så fall dig att söka stöd och hjälp.</p>
-                <p>Ta gärna kontakt med oss här (länk) så kan vi slussa dig vidare.</p>
-                <p>Vi finns här för att hjälpa till!</p>
-              </div>
-              <button
-                className="start-btn"
-                type="submit"
-                onClick={this.handleStart}><p>Börja</p>
-              </button>
-            </div>}
+          {this.formOrFinish()}
         </main>
-        <div className="data-vis">
-          <ResponsiveBar
-            data={[]}
-            keys={[
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-              "13",
-              "14",
-              "15",
-              "16"
-            ]}
-            indexBy="poängsumma"
-            margin={{
-              top: 50,
-              right: 130,
-              bottom: 50,
-              left: 60
-            }}
-            padding={0.3}
-            colors="pastel2"
-            colorBy="id"
-            defs={[
-              {
-                id: "dots",
-                type: "patternDots",
-                background: "inherit",
-                color: "#38bcb2",
-                size: 4,
-                padding: 1,
-                stagger: true
-              },
-              {
-                id: "lines",
-                type: "patternLines",
-                background: "inherit",
-                color: "#eed312",
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-              }
-            ]}
-            fill={[
-              {
-                match: {
-                  id: "fries"
-                },
-                id: "dots"
-              },
-              {
-                match: {
-                  id: "sandwich"
-                },
-                id: "lines"
-              }
-            ]}
-            borderColor="inherit:darker(1.6)"
-            axisBottom={{
-              orient: "bottom",
-              tickSize: 5,
-              tickPadding: 5,
-              tickRotation: 0,
-              legend: "poängsumma",
-              legendPosition: "center",
-              legendOffset: 36
-            }}
-            axisLeft={{
-              orient: "left",
-              tickSize: 5,
-              tickPadding: 5,
-              tickRotation: 0,
-              legend: "antal deltagare",
-              legendPosition: "center",
-              legendOffset: -40
-            }}
-            enableLabel={false}
-            labelSkipWidth={12}
-            labelSkipHeight={12}
-            labelTextColor="inherit:darker(1.6)"
-            animate={true}
-            motionStiffness={90}
-            motionDamping={15}
-            legends={[
-              {
-                dataFrom: "keys",
-                anchor: "bottom-right",
-                direction: "column",
-                translateX: 120,
-                itemWidth: 100,
-                itemHeight: 20,
-                itemsSpacing: 2,
-                symbolSize: 20
-              }
-            ]} />
-        </div>
         <footer className="footer">
           <div className="column-one">
             <h2>Födelsebyrån</h2>

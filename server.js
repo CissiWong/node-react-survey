@@ -17,7 +17,7 @@ app.use(cors())
 // Connect to MongoDB, on the "products-api" database. If the db doesn't
 // exist, mongo will create it.
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/fodelsebyran-api"
-mongoose.connect(mongoUrl, { useMongoClient: true })
+mongoose.connect(mongoUrl)
 
 // This makes mongo use ES6 promises, instead of its own implementation
 mongoose.Promise = Promise

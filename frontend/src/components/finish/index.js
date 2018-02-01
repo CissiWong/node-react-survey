@@ -1,4 +1,5 @@
 import React from "react"
+import NoScoreFinish from "../no-score-finish"
 
 export default class Finish extends React.Component {
   render() {

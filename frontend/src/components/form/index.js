@@ -20,14 +20,9 @@ export default class Form extends React.Component {
       currentQuestionIndex: this.state.currentQuestionIndex + 1,
       score: [...this.state.score, selectedScore]
     }, () => {
-      console.log("This is the array", this.state.score)
       const reducer = (accumulator, currentValue) => accumulator + currentValue
-      parseInt(this.state.score, 10)
-      // const totalScore = (this.state.score + selectedScore)
       this.setState({
         totalScore: this.state.score.reduce(reducer)
-      }, () => {
-        console.log("this should be adding", this.state.totalScore)
       })
     })
   }
