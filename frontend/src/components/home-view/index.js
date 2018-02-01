@@ -46,15 +46,15 @@ export default class HomeView extends React.Component {
       } else {
         console.log("oh no!", response.status === 404)
       }
+    }, () => {
+      Object.keys(this.state.results).map(totalScore => ({
+        data: totalScore,
+        keys: this.state.results[totalScore]
+      }))
     })
   }
   //
-  // dataForChart = () => (
-  //   Object.keys(this.state.results).map(totalScore => ({
-  //     data: totalScore,
-  //     keys: this.state.results[totalScore]
-  //   }))
-  // )
+  //
 
   render() {
     return (
