@@ -42,7 +42,6 @@ button {
 }
 
 button p:hover {
-  background-color: #00fd5a;
   text-decoration: underline;
 }
 
@@ -151,12 +150,15 @@ button:disabled {
     max-width: 60%;
     padding: 40px 25px 25px 25px;
   }
-
   div p {
     font-size: 1em;
   }
   div p.bold {
     font-size: 1em;
+  }
+  button p:hover {
+    background-color: #00fd5a;
+    text-decoration: underline;
   }
 }
 
@@ -208,6 +210,11 @@ button:disabled {
     font-size: 1.2em;
     margin: 0;
   }
+
+  button p:hover {
+    background-color: #00fd5a;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1224px) {
@@ -257,6 +264,11 @@ button:disabled {
   ul li label {
     font-size: 1.7em;
   }
+
+  button p:hover {
+    background-color: #00fd5a;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 1224px) and (max-width: 1824px) {
@@ -295,6 +307,11 @@ button:disabled {
     width: 300px;
     height: 60px;
     margin: 10% 0 10% 0;
+  }
+
+  button p:hover {
+    background-color: #00fd5a;
+    text-decoration: underline;
   }
 
   div p {
