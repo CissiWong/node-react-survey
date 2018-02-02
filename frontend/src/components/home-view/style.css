@@ -21,8 +21,6 @@
   padding: 40px;
   height: auto;
   max-width: 100%;
-  /* border-top: 0.5px solid #000;
-  border-bottom: 0.5px solid #000; */
 }
 
 .form {
@@ -50,6 +48,12 @@ button p:hover {
 
 button p {
   margin: 0;
+}
+
+button:disabled {
+  background: #f3f3f3;
+  color: #ccc;
+  border-color: #ccc;
 }
 
 .footer {

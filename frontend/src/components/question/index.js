@@ -12,14 +12,10 @@ export default class Question extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
-    if (this.state.selectedScore === null) {
-
-    } else {
-      this.props.onAnswered(this.state.selectedScore)
-      this.setState({
-        selectedScore: null
-      })
-    }
+    this.props.onAnswered(this.state.selectedScore)
+    this.setState({
+      selectedScore: null
+    })
   }
 
   handleScoreChange = event => {
