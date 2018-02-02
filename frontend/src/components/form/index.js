@@ -12,21 +12,6 @@ export default class Form extends React.Component {
     }
   }
 
-  // handleQuestionAnswer = selectedScore => {
-  //   if (this.state.currentQuestionIndex + 1 === data.length) {
-  //     this.props.onDone(this.state)
-  //   }
-  //   this.setState({
-  //     currentQuestionIndex: this.state.currentQuestionIndex + 1,
-  //     score: [...this.state.score, selectedScore]
-  //   }, () => {
-  //     const reducer = (accumulator, currentValue) => accumulator + currentValue
-  //     this.setState({
-  //       totalScore: this.state.score.reduce(reducer)
-  //     })
-  //   })
-  // }
-
   handleQuestionAnswer = selectedScore => {
     const score = [...this.state.score, selectedScore]
     const reducer = (accumulator, currentValue) => accumulator + currentValue

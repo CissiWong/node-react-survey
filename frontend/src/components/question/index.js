@@ -68,7 +68,7 @@ export default class Question extends React.Component {
         </div>
         <button
           disabled={this.state.selectedScore === null}
-          className="next-btn"
+          className={this.props.buttonText === "Avsluta" ? "finish-btn" : "next-btn"}
           type="submit">
           <p>{this.props.buttonText}</p>
         </button>

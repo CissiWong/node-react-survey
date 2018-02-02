@@ -132,7 +132,6 @@ button:disabled {
   color: #000;
 }
 
-
 @media (min-width: 480px) and (max-width: 768px) {
   .logo {
     max-width: 60%;
@@ -158,6 +157,15 @@ button:disabled {
   }
   button p:hover {
     background-color: #00fd5a;
+    text-decoration: underline;
+  }
+  .start-btn p:hover {
+    background-color: #acffff;
+    text-decoration: underline;
+  }
+
+  .finish-btn p:hover {
+    background-color: #f479f2;
     text-decoration: underline;
   }
 }
@@ -215,6 +223,15 @@ button:disabled {
     background-color: #00fd5a;
     text-decoration: underline;
   }
+  .start-btn p:hover {
+    background-color: #acffff;
+    text-decoration: underline;
+  }
+
+  .finish-btn p:hover {
+    background-color:  #f479f2;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1224px) {
@@ -269,6 +286,15 @@ button:disabled {
     background-color: #00fd5a;
     text-decoration: underline;
   }
+  .start-btn p:hover {
+    background-color: #acffff;
+    text-decoration: underline;
+  }
+
+  .finish-btn p:hover {
+    background-color:  #f479f2;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 1224px) and (max-width: 1824px) {
@@ -311,6 +337,15 @@ button:disabled {
 
   button p:hover {
     background-color: #00fd5a;
+    text-decoration: underline;
+  }
+  .start-btn p:hover {
+    background-color: #acffff;
+    text-decoration: underline;
+  }
+
+  .finish-btn p:hover {
+    background-color: #f479f2;
     text-decoration: underline;
   }
 
