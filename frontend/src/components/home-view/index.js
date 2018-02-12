@@ -53,12 +53,12 @@ export default class HomeView extends React.Component {
   startDiv = () => (
     <div className="start">
       <div>
-        <p>Du svarar på varje fråga genom att kryssa i ”ja” eller ”nej”.</p>
-        <p>Summan av dina svar, där ett ”ja” ger ett poängvärde och ett ”nej” ger 0 poäng, kommer att visas när du svarat på sista frågan.</p>
+       <h2>Så här funkar det:</h2>
+        <p>Enkäten består av 8 frågor. Du besvarar varje påståenden om hur du behandlades genom att välja ”ja” eller ”nej”.</p>
+        <p>Summan av alla dina svar, där ett ”ja” ger ett visst värde och ett ”nej” ger 0, kommer att visas när du svarat på sista frågan. Då får du även information och råd om vad nästa steg kan bli beroende på ditt resultat.</p>
         <p>Det kommer även att komma upp en text med information och råd om vad nästa steg kan bli, om poängvärdet blev högt.</p>
-        <p>Vi vill avsluta med att varna för att formuläret innehåller referenser till våld och tvång och kan verka triggande och råder vi i så fall dig att söka stöd och hjälp.</p>
-        <p>Ta gärna kontakt med oss  <a href="mailto:kontakt@fodelsebyran.se">här</a>  så kan vi slussa dig vidare.</p>
-        <p>Vi finns här för att hjälpa till!</p>
+        <p>Vi vill avsluta med att varna för att enkäten innehåller referenser till våld och tvång och kan verka triggande för somliga.</p>
+        <p>Ta gärna <a href="mailto:kontakt@fodelsebyran.se">kontakt med oss</a> för råd om var du kan söka stöd och hjälp. Vi finns här för dig.</p>
       </div>
       <button
         className="start-btn"
@@ -89,10 +89,9 @@ export default class HomeView extends React.Component {
           <img className="logo" src={logo} alt="" />
         </header>
         <div className="intro-text">
-          <p>Det här formuläret har vi tagit fram i förhoppning om att vi ska få en bättre uppfattning om vidden av problemet med förlossnings- och eftervård i Sverige idag.</p>
-          <p>Det är också för att du som vårdtagare/patient ska få möjlighet att sätta ord på vad som egentligen hände i förlossningsrummet och/eller tiden efter - som ett hjälpmedel för dig att se om det som hände faktiskt rör sig om en kränkning, ett övergrepp eller ett brott.</p>
-          <p>Vi kommer att använda svaren som statistik. Du kan förhoppningsvis använda det som ett sätt att få klarhet.</p>
-          <p>Självklart är du anonym.</p>
+          <p>Den här enkäten har Födelsebyrån tagit fram för att kartlägga hur patienters kroppsliga integritet och rättigheter respekteras inom förlossningsvården i Sverige idag.</p>
+          <p>Enkäten är helt anonym och vi hoppas att du som medverkar till denna unika kartläggning ska få möjlighet att börja sätta ord på vad som egentligen hände i förlossningsrummet och tiden efter och ett första verktyg för att få klarhet i om du blivit utsatt för oacceptabla handlingar av vårdpersonal så som kränkningar, övergrepp och andra allvarliga överträdelser.</p>
+          <p>Födelsebyrån kommer att använda svaren som statistik och underlag för fortbildnings- och påverkansarbete.  Har du synpunkter kring denna enkäts utformning och vill bidra till att förbättra den, ta gärna <a href="mailto:kontakt@fodelsebyran.se">kontakt med oss.</a></p>
         </div>
         <div className="chart">
           <div className="rubrik">

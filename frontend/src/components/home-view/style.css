@@ -54,6 +54,9 @@ button:disabled {
   color: #ccc;
   border-color: #ccc;
 }
+.start-btn {
+  cursor: pointer;
+}
 
 .footer {
   padding: 40px;
@@ -128,6 +131,12 @@ button:disabled {
 }
 .finish a {
   background-color: #acffff;
+  text-decoration: underline;
+  color: #000;
+}
+
+.intro-text a {
+  background-color: #ff32f6;
   text-decoration: underline;
   color: #000;
 }
